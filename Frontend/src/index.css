@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "impression";
+  src: url("/Eternalo.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "general";
+  src: url("/general.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+html::-webkit-scrollbar{
+    display: none;
+}
+.blogSection::-webkit-scrollbar{
+    display: none;
+}
