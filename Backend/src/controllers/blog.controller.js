@@ -68,4 +68,20 @@ async function deleteBlog(req,res){
     }
 }
 
-module.exports={createBlog, getAllBlogs, getMyBlogs, deleteBlog}
+async function getOneBlogs(req,res){
+    try {
+        const blog=await blogModel.findById(req.params.id)
+            .populate('createdBy','username email role createdAt');
+
+        if(!blog){
+            return res.status(404).json({message:"Blog not found"});
+        }
+
+        res.status(200).json({message:"Blog fetched successfully", blog});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message:"Failed to fetch blog"});
+    }
+}
+
+module.exports={createBlog, getAllBlogs, getMyBlogs, deleteBlog, getOneBlogs}

@@ -12,5 +12,6 @@ router.post('/create', authMiddleware.authCreator, upload.single('image'), blogC
 router.get('/getAll', blogController.getAllBlogs);
 router.get('/myblogs', authMiddleware.authUser, blogController.getMyBlogs)
 router.delete('/:id', authMiddleware.authUser, blogController.deleteBlog)
+router.get('/getOne/:id', blogController.getOneBlogs)
 
 module.exports=router;

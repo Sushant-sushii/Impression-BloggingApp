@@ -8,6 +8,7 @@ import Settings from "./components/BlogApp/Settings"
 import Feed from "./components/BlogApp/Feed"
 import Blog from "./components/BlogApp/Blog"
 import MyBlog from "./components/BlogApp/MyVlog"
+import DisplayBlogs from "./components/BlogApp/DisplayBlogs"
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(UserDataContext)
@@ -46,6 +47,14 @@ const App = () => {
           <Route path="setting" element={<Settings />} />
         </Route>
         <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/display-blogs/:id"
+          element={
+            <ProtectedRoute>
+              <DisplayBlogs />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
